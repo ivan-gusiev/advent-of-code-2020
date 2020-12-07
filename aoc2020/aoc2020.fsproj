@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net472</TargetFramework> 
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="input\02.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="input\01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Fixture.fs" />
+    <Compile Include="Day1.fs" />
+    <Compile Include="Day2.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+</Project>
