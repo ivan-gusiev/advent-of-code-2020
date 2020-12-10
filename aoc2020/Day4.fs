@@ -37,7 +37,7 @@ module Field =
 
     let private hex_color (value : FieldValue) = Regex.IsMatch(value, "#[0-9a-f]{6,6}")
 
-    let private passport_id (value : FieldValue) = Regex.IsMatch(value, "[0-9]{9,9}")
+    let private passport_id (value : FieldValue) = Regex.IsMatch(value, "^[0-9]{9,9}$")
 
     let isValid (fld : Field) : bool =
         match fld.name with
@@ -115,3 +115,25 @@ module Day4 =
 
     let solve2 = 
         Util.countIf Passport.isValid passports
+
+    let tests () =
+        let cases = [ "byr:2002", true
+                      "byr:2003", false
+                      "hgt:60in", true
+                      "hgt:190cm", true
+                      "hgt:190in", false
+                      "hgt:190", false
+                      "hcl:#123abc", true
+                      "hcl:#123abz", false
+                      "hcl:123abc", false
+                      "ecl:brn", true
+                      "ecl:wat", false
+                      "pid:000000001", true
+                      "pid:0123456789", false
+                    ]
+        let test (case, expected) =
+            let actual = Field.parse case |> Option.get |> Field.isValid
+            let result = if expected = actual then "RIGHT" else "WRONG"
+            printfn "%s: %s is %O; should be %O" result case actual expected
+
+        Seq.iter test cases
