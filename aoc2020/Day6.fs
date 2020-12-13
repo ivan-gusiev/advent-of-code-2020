@@ -1,7 +1,5 @@
 ﻿module Day6
 
-    open System
-
     let blocks = Fixture.blocks 6
 
     let countDistinctAnswers (items : string array) : int =

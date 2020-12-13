@@ -5,6 +5,11 @@
         | [| x; y |] -> Some(x, y)
         | _ -> None
 
+    let strSplit2 (separator : string) (text : string) : (string * string) option =
+        match text.Split(separator) with
+        | [| x; y |] -> Some(x, y)
+        | _ -> None
+
     let countIf<'t> (pred : 't -> bool) (items : 't seq) : int =
         Seq.filter pred items |> Seq.length
 
@@ -39,3 +44,10 @@
         ps
         |> List.map normalize
         |> normalize
+
+    let intParse (str : string) : int option =
+        let (result, x) = 
+            System.Int32.TryParse(str, 
+                                  System.Globalization.NumberStyles.Integer, 
+                                  System.Globalization.CultureInfo.InvariantCulture)
+        if result then Some x else None

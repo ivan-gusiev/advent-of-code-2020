@@ -24,6 +24,10 @@
     <Content Include="input\06.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="input\07.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Optional.fs" />
     <Compile Include="Util.fs" />
     <Compile Include="Fixture.fs" />
     <Compile Include="Day1.fs" />
@@ -32,6 +36,11 @@
     <Compile Include="Day4.fs" />
     <Compile Include="Day5.fs" />
     <Compile Include="Day6.fs" />
+    <Compile Include="Day7.fs" />
     <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharp.Text.RegexProvider" Version="2.1.0" />
   </ItemGroup>
 </Project>
