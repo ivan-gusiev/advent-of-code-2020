@@ -11,3 +11,6 @@ let str (day : int) : string =
 
 let lines (day : int) : string array =
     day |> filename |> File.ReadAllLines
+
+let blocks (day : int) : string array array =
+    lines day |> Util.splitBy String.IsNullOrWhiteSpace
